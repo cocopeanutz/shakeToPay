@@ -1,5 +1,6 @@
 package com.example.payment
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -35,6 +36,7 @@ class OffChainPaymentActivity : AppCompatActivity() {
         createWalletButton?.setOnClickListener {
             KeyStoreHelper.generateAccount(this)
             showLog("Step 1: createWallet success : ${KeyStoreHelper.getAddress()}")
+            Log.d("KeyStoreaddress:",KeyStoreHelper.getAddress())
         }
 
         //step 2: Get token from faucet
@@ -73,18 +75,19 @@ class OffChainPaymentActivity : AppCompatActivity() {
             }
         }
 
-        //step 5: Check balance
-        checkBalanceButton?.setOnClickListener {
-            val result = CelerClientAPIHelper.checkBalance()
-            showLog("Current balance: $result")
-        }
+//        //step 5: Check balance
+//        checkBalanceButton?.setOnClickListener {
+//            val result = CelerClientAPIHelper.checkBalance()
+//            showLog("Current balance: $result")
+//        }
 
         //step 6: Send payment
         sendPaymentButton?.setOnClickListener {
-            val result = CelerClientAPIHelper.sendPayment(
-                    "0x200082086aa9f3341678927e7fc441196a222ac1",
-                    "1")
-            showLog(result)
+            val intent = Intent(this, secondActivity::class.java).apply {
+                putExtra("myAddress", KeyStoreHelper.getAddress())
+            }
+            startActivity(intent)
+
         }
     }
 

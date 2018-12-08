@@ -101,7 +101,7 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/colorPrimaryDark"
         android:onClick="sendPayment"
-        android:text="Send payment off-chain"
+        android:text="Next"
         android:textColor="@android:color/white"
         android:textSize="25sp"
         android:visibility="invisible"

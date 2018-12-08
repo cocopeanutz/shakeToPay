@@ -12,7 +12,7 @@ object KeyStoreHelper {
     private var account: Account? = null
     private var keyStoreString: String = ""
 
-    fun getAddress(): String {
+    @JvmStatic fun getAddress(): String {
         return account!!.address.hex
     }
 

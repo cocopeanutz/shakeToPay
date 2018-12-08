@@ -37,7 +37,7 @@ object CelerClientAPIHelper {
 
     }
 
-    fun checkBalance(): String {
+    @JvmStatic fun checkBalance(): String {
         // check has joined Celer
         try {
             val balance = client?.getBalance(1L)?.available
@@ -50,7 +50,7 @@ object CelerClientAPIHelper {
 
     }
 
-    fun sendPayment(receiverAddress: String, transferAmount: String): String {
+    @JvmStatic fun sendPayment(receiverAddress: String, transferAmount: String): String {
         try {
             client?.sendPay(receiverAddress, transferAmount)
             return "Send payment: successful"
@@ -58,8 +58,9 @@ object CelerClientAPIHelper {
             Log.d(TAG, "send PaymentError: ${e.localizedMessage}")
             return "Send payment Error: ${e.localizedMessage}"
         }
-
     }
-
-
+    @JvmStatic fun verifyReceiver(receiverAddress: String): String? {
+        Log.d("verifyReceiver", client?.hasJoinedCeler(receiverAddress))
+        return client?.hasJoinedCeler(receiverAddress)
+    }
 }

@@ -17,5 +17,7 @@
         \"ResolverAddr\": \"cf8938ae21a21a7ffb2d47a69742ef5ce7a669cc\",
         \"DepositPoolAddr\": \"658333a4ea7dd461b56592ed62839afc18d54a42\",
         \"HTLRegistryAddr\": \"a41bf533110e0b778f6757e04cf7c6d2a8e294b1\"}</string>
+    <string name="title_activity_shake_video">shakeVideo</string>
+    <string name="title_activity_second">secondActivity</string>
 
 </resources>
